@@ -21,7 +21,7 @@ private:
 	std::string name;
 
 	bool isMovingUp = false, isMovingDown = false, isMovingLeft = false, isMovingRight = false, allowToShoot = true;
-	float playerSpeed = 660.f;
+	float playerSpeed = 560.f;
 	int width, height;
 
 };

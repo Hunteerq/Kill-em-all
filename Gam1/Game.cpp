@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 
-Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", 1400, 860, 110.f, 90.f)
+Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", wi, hi, 110.f, 90.f)
 {}
 
 Game::~Game()

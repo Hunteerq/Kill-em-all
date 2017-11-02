@@ -16,7 +16,7 @@ private:
 	void setTextureToBullet();
 
 	sf::Texture bulletTexture;
-	float bulletSpeed = -8.0f;
+	float bulletSpeed = -10.0f;
 
 
 };
