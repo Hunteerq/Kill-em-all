@@ -6,22 +6,21 @@
 class Hero
 {
 public:
-	Hero(std::string nam, int wi, int hi);
+	Hero(std::string nam, int wi, int hi, float offSetT, float offSetR);
 	~Hero();
 	sf::Sprite sprite;
-	std::vector<sf::Sprite> bullet;
-	void shoot();
-	void moveBullets();
+	float getOffSetTop();
+	float getOffSetRight();
 
 
-private:
-	void setTextureMainHero();
-	void setTextureToBullet();
-	sf::Texture texture;
-	sf::Texture bulletTexture;
-	std::string name;
-	int life, width, height;
-	float bulletSpeed = - 8.0f;
+
+protected:
 	
+	std::string name;
+	sf::Texture texture;
+	int life, width, height;
+	float offSetTop, offSetRight;
+
+
 };
 

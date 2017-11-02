@@ -152,12 +152,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Kill %27em all\Gam1\MainPlayer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Kill %27em all\Gam1\MainPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hero.cpp" />
     <ClCompile Include="main.cpp" />

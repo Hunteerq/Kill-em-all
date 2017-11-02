@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "Game.h"
 
-Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", 1400, 860)
+Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", 1400, 860, 110.f, 90.f)
 {}
 
 Game::~Game()
-{ }
+{ /*my existance is pointless*/ }
 
 void Game::run()
 {
@@ -71,12 +71,14 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 void Game::update(sf::Time deltaTime)
 {
 	sf::Vector2f movement(0.f, 0.f);
+	sf::Vector2f tempVector = Player.sprite.getPosition();
 
-	if (isMovingUp) movement.y -= playerSpeed;
-	if (isMovingDown) movement.y += playerSpeed;
-	if (isMovingLeft) movement.x -= playerSpeed;
-	if (isMovingRight) movement.x += playerSpeed;
+	if (tempVector.y > Player.getOffSetTop() && isMovingUp) movement.y -= playerSpeed;
+	if (tempVector.y < height && isMovingDown) movement.y += playerSpeed;
+	if (tempVector.x > 0 && isMovingLeft) movement.x -= playerSpeed;
+	if (tempVector.x < width - Player.getOffSetRight() && isMovingRight) movement.x += playerSpeed;
 	Player.sprite.move(movement * deltaTime.asSeconds());
+
 	Player.moveBullets();
 }
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Hero.h"
+#include "MainPlayer.h"
 
 class Game
 {
@@ -14,7 +14,7 @@ private:
 	void update(sf::Time deltaTime);
 	void render();
 
-	Hero Player;
+	MainPlayer Player;
 
 	sf::RenderWindow Window;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f);
