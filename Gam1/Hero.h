@@ -3,6 +3,7 @@
 #include <SFML\Graphics.hpp>
 #include <Windows.h>
 
+
 class Hero
 {
 public:

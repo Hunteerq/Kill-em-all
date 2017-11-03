@@ -1,5 +1,6 @@
 #pragma once
 #include "Hero.h"
+#include <Windows.h>
 
 class MainPlayer :
 	public Hero

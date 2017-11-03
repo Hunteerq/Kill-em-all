@@ -1,5 +1,6 @@
 #pragma once
 #include "MainPlayer.h"
+#include "Menu.h"
 
 class Game
 {
@@ -13,7 +14,10 @@ private:
 	void processEvents();
 	void update(sf::Time deltaTime);
 	void render();
+	void showMenu();
+	void eventsMenu();
 
+	Menu menu;
 	MainPlayer Player;
 
 	sf::RenderWindow Window;

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 
-Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", wi, hi, 110.f, 90.f)
+Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", wi, hi, 110.f, 90.f), menu(wi, hi)
 {}
 
 Game::~Game()
@@ -11,8 +11,15 @@ void Game::run()
 {
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	
 	while (Window.isOpen())
 	{
+		while (menu.getUseMenu())
+		{
+			showMenu();
+			clock.restart();
+		}
+		
 		timeSinceLastUpdate += clock.restart();
 		while (timeSinceLastUpdate > timePerFrame)
 		{
@@ -55,30 +62,27 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed)
 		isMovingLeft = isPressed;
 	else if (key == sf::Keyboard::D)
 		isMovingRight = isPressed;
+	else if (key == sf::Keyboard::Escape)
+		menu.setUseMenu(true);					//TODO: Menu after esc 
 	else if (key == sf::Keyboard::Space)
 	{
 		allowToShoot = !isPressed;
-		if (allowToShoot)
-		{
-			Player.shoot(); 
-		}
+		if (allowToShoot)	Player.shoot();
 	}
-	else if (key == sf::Keyboard::Escape)
-		Window.close();
 
 }
 
 void Game::update(sf::Time deltaTime)
 {
 	sf::Vector2f movement(0.f, 0.f);
-	sf::Vector2f tempVector = Player.sprite.getPosition();
+	sf::Vector2f tempVector = Player.sprite.getPosition();		//for tests that Hero won't leave the window after the move
 
 	if (tempVector.y > Player.getOffSetTop() && isMovingUp) movement.y -= playerSpeed;
 	if (tempVector.y < height && isMovingDown) movement.y += playerSpeed;
 	if (tempVector.x > 0 && isMovingLeft) movement.x -= playerSpeed;
 	if (tempVector.x < width - Player.getOffSetRight() && isMovingRight) movement.x += playerSpeed;
-	Player.sprite.move(movement * deltaTime.asSeconds());
-
+	
+	Player.sprite.move(movement * deltaTime.asSeconds());	   // deltaTime should be ~ 1/60
 	Player.moveBullets();
 }
 
@@ -87,8 +91,40 @@ void Game::render()
 	Window.clear();
 	Window.draw(Player.sprite);
 	for (int i = 0; i < Player.bullet.size(); i++)
-	{
 		Window.draw(Player.bullet[i]);
+	Window.display();
+}
+
+void Game::showMenu()
+{
+	Window.clear();
+
+	eventsMenu();
+	for (int i = 0; i < menu.menuElements; i++)
+	{
+		Window.draw(menu.text[i]);
 	}
 	Window.display();
+}
+
+void Game::eventsMenu()
+{
+	sf::Event eventMenu;
+	while (Window.pollEvent(eventMenu))
+	{
+		switch (eventMenu.type)
+		{
+			case sf::Event::Closed:
+				Window.close();
+				break;
+			case sf::Event::KeyPressed:
+				menu.menuSwap(eventMenu.key.code, true);
+				break;
+			case sf::Event::KeyReleased:
+				menu.menuSwap(eventMenu.key.code, false);
+				break;
+
+		}
+	}
+
 }
