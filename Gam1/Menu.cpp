@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Menu.h"
-
 #pragma warning (disable: 4996)
+
 
 
 
@@ -16,7 +16,8 @@ Menu::Menu(int wi, int hi): width(wi), height(hi)
 	try { loadFonts();   }
 	catch (std::string e)
 	{
-		MessageBox(NULL, L"No font in file directory, add AvengenceFont.ttf to media/fonts directory", L"Error from loading", MB_ICONERROR | MB_OK);
+		MessageBox(NULL, L"No font in file directory, add AvengenceFont.ttf to media/fonts directory, download good version from https//github.com/Hunteerq/Kill-em-all", L"Error from loading", MB_ICONERROR | MB_OK);
+		exit(4);
 	}
 
 
@@ -69,7 +70,7 @@ void Menu::menuSwap(sf::Keyboard::Key key, bool menuPressed)
 			text[currentIndex].setColor(sf::Color::Red);
 		}
 
-		else if (key == sf::Keyboard::Return)
+		else if (key == sf::Keyboard::Return || key == sf::Keyboard::Space)
 		{
 			if (currentIndex == 0)
 			{

@@ -6,18 +6,25 @@ class MainPlayer :
 	public Hero
 {
 public:
-	std::vector<sf::Sprite> bullet;
 	void shoot();
 	void moveBullets();
 	MainPlayer(std::string namee, int widthh, int heightt, float offSetT, float offSetR);
 	~MainPlayer();
 
+	std::vector<sf::Sprite> bullet;
+	sf::Text textForKills[2];
+	
+
 private:
 	void setTextureMainHero();
 	void setTextureToBullet();
+	void loadFontsForKillsAndText();
 
+
+	sf::Font fontForKills;
 	sf::Texture bulletTexture;
 	float bulletSpeed = -10.0f;
+	int kills;
 
 
 };

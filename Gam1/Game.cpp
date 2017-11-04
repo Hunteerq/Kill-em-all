@@ -92,6 +92,8 @@ void Game::render()
 	Window.draw(Player.sprite);
 	for (int i = 0; i < Player.bullet.size(); i++)
 		Window.draw(Player.bullet[i]);
+	for (int i = 0; i < 2; i++)
+		Window.draw(Player.textForKills[i]);
 	Window.display();
 }
 
