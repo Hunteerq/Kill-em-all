@@ -2,7 +2,17 @@
 #include "Game.h"
 
 Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Window(sf::VideoMode(wi, hi), na), Player("Artur", wi, hi, 110.f, 90.f), menu(wi, hi)
-{}
+{
+	try {	loadBackground(); }
+	catch (std::string e)
+	{
+		MessageBox(NULL, L"No background texture in file directory, add bgDark.png to media/backgrounds directory, or download good version from https://github.com/Hunteerq/Kill-em-all", L"Error from loading", MB_ICONERROR | MB_OK);
+		std::cout << e << std::endl; exit(4);
+	}
+	
+	background.setTexture(backgroundTexture);
+	background.setPosition(sf::Vector2f(-400.f, 0.f));
+}
 
 Game::~Game()
 { /*my existance is pointless*/ }
@@ -89,6 +99,7 @@ void Game::update(sf::Time deltaTime)
 void Game::render()
 {
 	Window.clear();
+	Window.draw(background);
 	Window.draw(Player.sprite);
 	for (int i = 0; i < Player.bullet.size(); i++)
 		Window.draw(Player.bullet[i]);
@@ -129,4 +140,13 @@ void Game::eventsMenu()
 		}
 	}
 
+}
+
+void Game::loadBackground()
+{
+	if (!backgroundTexture.loadFromFile("media/backgrounds/bgDark.png"))
+	{
+		std::string exception = "No background in file directory";
+		throw exception;
+	}
 }

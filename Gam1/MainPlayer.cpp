@@ -96,6 +96,6 @@ void MainPlayer::loadFontsForKillsAndText()
 		textForKills[i].setFont(fontForKills);
 		textForKills[i].setColor(sf::Color::Red);
 		textForKills[i].setCharacterSize(30);
-		textForKills[i].setPosition(sf::Vector2f(0.f, i*30.f));
+		textForKills[i].setPosition(sf::Vector2f(i*15.f, i*30.f));
 	}
 }

@@ -16,10 +16,13 @@ private:
 	void render();
 	void showMenu();
 	void eventsMenu();
+	void loadBackground();
 
 	Menu menu;
 	MainPlayer Player;
 
+	sf::Texture backgroundTexture;
+	sf::Sprite background;
 	sf::RenderWindow Window;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f);
 	std::string name;
