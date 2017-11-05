@@ -6,11 +6,8 @@ c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(126
 c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(130): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
 c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(185): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
 c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(188): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(204): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(222): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(226): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
-  Generowanie kodu...
-  Pomijanie... (nie wykryto odpowiednich zmian)
-  main.cpp
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(205): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(223): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(227): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
   Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Kill 'em all.exe
   Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Kill 'em all.pdb (Partial PDB)

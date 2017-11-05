@@ -190,6 +190,7 @@ void Game::ifVillainKilled()
 			tempBullet = Player.bullet[j].getPosition();
 			if (tempBullet.x >= tempVillain.x - Player.ballOffsetR + 10 && tempBullet.x <= tempVillain.x + 73 + Player.ballOffsetR - 40 && tempBullet.y <= tempVillain.y + 72) //Hit condition
 			{
+				Player.bullet.erase(Player.bullet.begin() + j);
 				villains.erase(villains.begin() + i);
 				Player.kills++;
 				Player.textForKills[1].setString(std::to_string(Player.kills));
