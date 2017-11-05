@@ -9,9 +9,9 @@ class Villain :
 public:
 	Villain(std::string nam, int width, int height, float offSetR, float offSetT);
 	~Villain();
-	//void setVillainTexture(sf::Texture textureVillain);
     void moveVillain();
-	void setTextures(); //
+	void setTextures(); 
+	bool ifHitTheGround();
 
 private:
 	float speed;

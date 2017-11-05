@@ -46,12 +46,11 @@ void Game::run()
 			timeSinceLastUpdate -= timePerFrame;
 			processEvents();
 			update(timePerFrame);
-
-			for (int j = 0; j < villains.size(); j++) villains[j].moveVillain();
+			
 			if (iTime > 180)
 			{
 				iTime = 0;
-				villains.push_back(Villain("Artur", width, height, 73, 72));
+				villains.push_back(new Villain("Artur", width, height, 73, 72));
 			}
 		}
 		render();
@@ -110,7 +109,12 @@ void Game::update(sf::Time deltaTime)
 	if (tempVector.x < width - Player.getOffSetRight() && isMovingRight) movement.x += playerSpeed;
 
 	Player.sprite.move(movement * deltaTime.asSeconds());	   // deltaTime should be ~ 1/60
+	ifVillainKilled();		// IT FUCKING WORKS <3
+	for (int j = 0; j < villains.size(); j++)
+		villains[j]->moveVillain();
+
 	Player.moveBullets();
+	ifVillainWon();
 
 }
 
@@ -119,13 +123,12 @@ void Game::render()
 	Window.clear();
 	Window.draw(background);
 	Window.draw(Player.sprite);
-	ifVillainKilled();						//<3
 	for (int i = 0; i < Player.bullet.size(); i++)
 		Window.draw(Player.bullet[i]);
 	for (int i = 0; i < 2; i++)
 		Window.draw(Player.textForKills[i]);
 	for (int i = 0; i < villains.size(); i++)
-		Window.draw(villains[i].sprite);
+		Window.draw(villains[i]->sprite);
 
 	Window.display();
 }
@@ -177,22 +180,55 @@ void Game::ifVillainKilled()
 {
 	sf::Vector2f tempVillain;
 	sf::Vector2f tempBullet;
+
+
 	for (int i = 0; i < villains.size(); i++)
 	{
-		tempVillain = villains[i].sprite.getPosition();
+		tempVillain = villains[i]->sprite.getPosition();
 		for (int j = 0; j < Player.bullet.size(); j++)
 		{
 			tempBullet = Player.bullet[j].getPosition();
-			if (tempBullet.x >= tempVillain.x - Player.ballOffsetR +10 && tempBullet.x <= tempVillain.x + 73 + Player.ballOffsetR - 40)
+			if (tempBullet.x >= tempVillain.x - Player.ballOffsetR + 10 && tempBullet.x <= tempVillain.x + 73 + Player.ballOffsetR - 40 && tempBullet.y <= tempVillain.y + 72) //Hit condition
 			{
-				if (tempBullet.y <= tempVillain.y + 72)
-				{
-					villains.erase(villains.begin() + i);
-					Player.kills++;
-					Player.textForKills[1].setString(std::to_string(Player.kills));
-				}
+				villains.erase(villains.begin() + i);
+				Player.kills++;
+				Player.textForKills[1].setString(std::to_string(Player.kills));
 			}
 		}
 	}
 
+}
+
+void Game::ifVillainWon()
+{
+	for (int i = 0; i < villains.size(); i++)
+	{
+		if (villains[i]->ifHitTheGround())
+		{
+			menu.textIfLose[2].setString(Player.textForKills[1].getString());
+			Window.clear();
+			Window.draw(menu.textIfLose[0]);
+			Window.draw(menu.textIfLose[1]);
+			Window.draw(menu.textIfLose[2]);
+			Window.display();
+			sf::Clock clockMenu;
+			sf::Time time4sec = sf::Time::Zero;
+			while (time4sec.asSeconds() < 4)
+			{
+				time4sec += clockMenu.restart();
+			}
+			Player.kills = 0;
+			Player.sprite.setPosition(width / 2.0f, height*1.0f);
+			for (int j = 0; j < villains.size(); j++)
+			{
+				villains.erase(villains.begin()+ j );
+			}
+			for (int k = 0; k < Player.bullet.size(); k++)
+			{
+				Player.bullet.erase(Player.bullet.begin() + k);
+			}
+			menu.setUseMenu(true);
+
+		}
+	}
 }

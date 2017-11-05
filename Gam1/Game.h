@@ -19,10 +19,11 @@ private:
 	void eventsMenu();
 	void loadBackground();
 	void ifVillainKilled();
+	void ifVillainWon();
 
 	Menu menu;
 	MainPlayer Player;
-	std::vector <Villain> villains;
+	std::vector <Villain *> villains;
 
 	sf::Texture backgroundTexture;
 
@@ -32,7 +33,7 @@ private:
 	std::string name;
 	
 	bool isMovingUp = false, isMovingDown = false, isMovingLeft = false, isMovingRight = false, allowToShoot = true;
-	float playerSpeed = 560.f;
+	float playerSpeed = 860.f;
 	int width, height;
 
 };

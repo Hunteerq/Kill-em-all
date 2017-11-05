@@ -16,6 +16,7 @@ public:
 
 	int menuElements;
 	sf::Text *text;
+	sf::Text textIfLose[3];
 
 
 private:

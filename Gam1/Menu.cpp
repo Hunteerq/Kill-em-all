@@ -7,6 +7,7 @@
 
 Menu::Menu(int wi, int hi): width(wi), height(hi)
 {
+	
 	useMenu = true;
 	menuElements = 3;
 	currentIndex = 0;
@@ -27,12 +28,21 @@ Menu::Menu(int wi, int hi): width(wi), height(hi)
 		//text[i].setColor(sf::Color::White);
 		text[i].setPosition(sf::Vector2f(wi / 2 - 200, hi / (menuElements + 1)*1.f * (i+1)));
 		text[i].setCharacterSize(100);
+		textIfLose[i].setFont(fontOne);
+		textIfLose[i].setCharacterSize(80);
 	}
+	textIfLose[0].setCharacterSize(125);
 	text[0].setColor(sf::Color::Red);
 	text[0].setString("Play");
 	text[1].setString("Options");
 	text[2].setString("Exit");
 	
+	textIfLose[0].setString("You have lost");
+	textIfLose[1].setString("Your score: ");
+	textIfLose[0].setPosition(sf::Vector2f(100.f, hi / 5));
+	textIfLose[1].setPosition(sf::Vector2f(100.f, hi / 2));
+	textIfLose[2].setPosition(sf::Vector2f(width - 400.f, hi / 2));
+	textIfLose[2].setColor(sf::Color::Red);
 }
 
 
