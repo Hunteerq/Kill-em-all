@@ -3,7 +3,7 @@
 
 
 Hero::Hero(std::string nam, int wi, int hi, float offSetT, float offSetR) 
-	: name(nam), width(wi), height(hi), offSetTop(offSetT), offSetRight(offSetR), sprite(), texture()
+	: name(nam), width(wi), height(hi), offSetTop(offSetT), offSetRight(offSetR), sprite(), texture() 
 { }
 
 Hero::~Hero()

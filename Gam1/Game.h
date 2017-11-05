@@ -1,5 +1,6 @@
 #pragma once
 #include "MainPlayer.h"
+#include "Villain.h"
 #include "Menu.h"
 
 class Game
@@ -17,16 +18,19 @@ private:
 	void showMenu();
 	void eventsMenu();
 	void loadBackground();
+	void ifVillainKilled();
 
 	Menu menu;
 	MainPlayer Player;
+	std::vector <Villain> villains;
 
 	sf::Texture backgroundTexture;
+
 	sf::Sprite background;
 	sf::RenderWindow Window;
 	sf::Time timePerFrame = sf::seconds(1.f / 60.f);
 	std::string name;
-
+	
 	bool isMovingUp = false, isMovingDown = false, isMovingLeft = false, isMovingRight = false, allowToShoot = true;
 	float playerSpeed = 560.f;
 	int width, height;

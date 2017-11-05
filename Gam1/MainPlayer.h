@@ -14,6 +14,8 @@ public:
 	std::vector<sf::Sprite> bullet;
 	sf::Text textForKills[2];
 	
+	int ballOffsetR, ballOffsetT;
+	int kills;
 
 private:
 	void setTextureMainHero();
@@ -24,7 +26,6 @@ private:
 	sf::Font fontForKills;
 	sf::Texture bulletTexture;
 	float bulletSpeed = -10.0f;
-	int kills;
 
 
 };

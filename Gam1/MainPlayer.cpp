@@ -3,28 +3,28 @@
 #pragma warning (disable: 4996)
 
 
-MainPlayer::MainPlayer(std::string namee, int widthh, int heightt, float offSetT, float offSetR): Hero(namee, widthh, heightt, offSetT, offSetR), kills(0)
+MainPlayer::MainPlayer(std::string namee, int widthh, int heightt, float offSetT, float offSetR): Hero(namee, widthh, heightt, offSetT, offSetR), kills(0), ballOffsetR(46), ballOffsetT(46)
 {
 	/*  LOADING ALL NEEDED TEXTURES AND FONTS   */
 	try { loadFontsForKillsAndText(); }
 	catch (std::string e)
 	{
 		MessageBox(NULL, L"No font in file directory, add AvengenceFont.ttf to media/fonts directory, or download good version from https://github.com/Hunteerq/Kill-em-all", L"Error from loading", MB_ICONERROR | MB_OK);
-		std::cout << e << std::endl;	getchar();		exit(4);
+		std::cout << e << std::endl;	  exit(4);
 	}
 
 	try { setTextureMainHero(); }
 	catch (std::string e)
 	{
 		MessageBox(NULL, L"No hero texture in file directory, add hero.png to media/heroes directory, or download good version from https://github.com/Hunteerq/Kill-em-all", L"Error from loading", MB_ICONERROR | MB_OK);
-		std::cout << e << std::endl;      getchar();    exit(4);
+		std::cout << e << std::endl;      exit(4);
 	}
 
 	try { setTextureToBullet(); }
 	catch (std::string e)
 	{
 		MessageBox(NULL, L"No bullet texture in file directory, add bullet.png to media/weapons directory, or download good version from https://github.com/Hunteerq/Kill-em-all", L"Error from loading", MB_ICONERROR | MB_OK);
-		std::cout << e << std::endl;      getchar();    exit(4);
+		std::cout << e << std::endl;      exit(4);
 	}
 
 

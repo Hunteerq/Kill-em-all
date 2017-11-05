@@ -10,15 +10,15 @@ public:
 	Hero(std::string nam, int wi, int hi, float offSetT, float offSetR);
 	~Hero();
 	sf::Sprite sprite;
+
 	float getOffSetTop();
 	float getOffSetRight();
 
 
 
 protected:
-	
-	std::string name;
 	sf::Texture texture;
+	std::string name;
 	int life, width, height;
 	float offSetTop, offSetRight;
 

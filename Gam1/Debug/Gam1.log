@@ -1,3 +1,14 @@
-﻿  main.cpp
-  Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Gam1.exe
-  Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Gam1.pdb (Partial PDB)
+﻿C:\Program Files (x86)\Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: Katalog pośredni (Debug\) zawiera pliki udostępnione z innego projektu (Gam1.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
+  Game.cpp
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(50): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(29): warning C4101: "count": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(123): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(127): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(180): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+c:\users\hunteerq\documents\projects\c++\game dev\kill 'em all\gam1\game.cpp(183): warning C4018: "<": niezgodność typu ze znakiem/bez znaku
+  Generowanie kodu...
+  Trwa kompilowanie...
+  main.cpp
+  Generowanie kodu...
+  Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Kill 'em all.exe
+  Gam1.vcxproj -> C:\Users\Hunteerq\Documents\Projects\C++\Game Dev\Kill 'em all\Debug\Kill 'em all.pdb (Partial PDB)
