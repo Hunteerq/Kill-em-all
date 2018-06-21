@@ -22,7 +22,7 @@ Game::Game(int wi, int hi, std::string na) : width(wi), height(hi), name(na), Wi
 }
 
 Game::~Game()
-{ /*my existance is pointless*/ }
+{ /*my existence is pointless*/ }
 
 void Game::run()
 {
