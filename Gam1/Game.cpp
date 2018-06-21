@@ -109,7 +109,7 @@ void Game::update(sf::Time deltaTime)
 	if (tempVector.x < width - Player.getOffSetRight() && isMovingRight) movement.x += playerSpeed;
 
 	Player.sprite.move(movement * deltaTime.asSeconds());	   // deltaTime should be ~ 1/60
-	ifVillainKilled();		// IT FUCKING WORKS <3
+	ifVillainKilled();	
 	for (int j = 0; j < villains.size(); j++)
 		villains[j]->moveVillain();
 
